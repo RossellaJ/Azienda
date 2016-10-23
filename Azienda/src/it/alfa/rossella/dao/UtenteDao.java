@@ -14,7 +14,7 @@ public class UtenteDao {
 	
 		 // 1 create
 		
-		public boolean inserisciUtente(UtenteBean u){
+		public boolean creaUtente(UtenteBean u){
 			boolean res=false;
 			
 			Session session = HibernateUtil.openSession();
@@ -33,7 +33,7 @@ public class UtenteDao {
 			return res;
 
 		}
-		//2a read uno
+		//2a read utente con nome e cognome
 		public boolean readUtenteNomeCognome(String nome, String cognome) {
 			boolean res=false;
 			Session session = HibernateUtil.openSession();
@@ -59,6 +59,7 @@ public class UtenteDao {
 			return res;
 		}
 		
+		//read utente con username
 		public boolean readUtenteUsername(String username) {
 			boolean res=false;
 			Session session = HibernateUtil.openSession();
@@ -82,7 +83,30 @@ public class UtenteDao {
 			}		
 			return res;
 		}
-		
+			
+		//read utente con username,restituisce utente
+		public UtenteBean trovaUtenteConUsername(String username) {
+			
+			UtenteBean ubean=null;
+			Session session =HibernateUtil.openSession();
+			Transaction tx=null;
+
+			try{
+			tx=session.getTransaction();
+			tx.begin();
+			Query query=session.createQuery("from UtenteBean where username=:x1");
+			query.setString("x1", username);
+			ubean=(UtenteBean) query.uniqueResult();
+			 tx.commit();
+			}catch(Exception ex){
+				tx.rollback();
+			}finally{
+				session.close();
+			}
+			return ubean;
+			
+	}
+		//read utente con password
 		public boolean readUtenteUsernamePassword (String username,String password){
 			boolean res=false;
 			Session session = HibernateUtil.openSession();
