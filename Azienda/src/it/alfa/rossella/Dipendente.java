@@ -1,4 +1,4 @@
-package it.alfa.rossella.model;
+package it.alfa.rossella;
 
 public class Dipendente extends Utente{
 	

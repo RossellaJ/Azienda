@@ -17,8 +17,8 @@ lgpl.txt file in the root directory or <http://www.gnu.org/licenses/lgpl-2.1.htm
 
 
 <property name="connection.url">jdbc:oracle:thin:@localhost:1521:xe</property> 
-<property name="connection.username">beanjsp</property>
-<property name="connection.password">beanjsp</property>
+<property name="connection.username">ered</property>
+<property name="connection.password">ered</property>
 <!-- JDBC connection pool (use the built-in) -->
 <property name="connection.pool_size">1</property>
 <!-- SQL dialect -->
