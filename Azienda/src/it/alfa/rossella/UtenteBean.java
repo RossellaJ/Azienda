@@ -1,8 +1,29 @@
 package it.alfa.rossella;
 
-public class Utente {
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+
+
+@Entity
+@Inheritance(strategy=InheritanceType.JOINED)
+public class UtenteBean implements Serializable{
+
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Id 
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	protected String idUtente;
+	
 	protected String nome;
 	protected String cognome;
 	protected String username;
@@ -14,7 +35,7 @@ public class Utente {
 
 
 
-	public Utente() {
+	public UtenteBean() {
 	this.idUtente="";
 	this.nome="";
 	this.cognome="";
@@ -23,10 +44,21 @@ public class Utente {
 	this.ruolo=' ';
 	}
 	
-	public Utente(String idUtente, String nome, String cognome,
+	public UtenteBean(String idUtente, String nome, String cognome,
 			String username, String password, char ruolo) {
 		super();
 		this.idUtente = idUtente;
+		this.nome = nome;
+		this.cognome = cognome;
+		this.username = username;
+		this.password = password;
+		this.ruolo = ruolo;
+	}
+
+	
+	public UtenteBean(String nome, String cognome, String username,
+			String password, char ruolo) {
+		super();
 		this.nome = nome;
 		this.cognome = cognome;
 		this.username = username;
@@ -81,21 +113,6 @@ public class Utente {
 	public void setRuolo(char ruolo) {
 		this.ruolo = ruolo;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 
