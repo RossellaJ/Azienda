@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+    <jsp:useBean id="utente" class="it.alfa.rossella.UtenteBean" scope="session"></jsp:useBean>
+	<jsp:useBean id="message" class="utility.MessageBean" scope="request"></jsp:useBean>
+    
 <!DOCTYPE html >
 <html>
 <head>
