@@ -1,7 +1,8 @@
 package it.alfa.rossella.dao;
 
 import hibernateUtil.HibernateUtil;
-import it.alfa.rossella.UtenteBean;
+
+import it.alfa.rossella.DipendenteBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,11 +11,10 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-public class UtenteDao {
+public class DipendenteDao {
+	 // 1 create
 	
-		 // 1 create
-		
-		public boolean inserisciUtente(UtenteBean u){
+		public boolean inserisciDipendente(DipendenteBean u){
 			boolean res=false;
 			
 			Session session = HibernateUtil.openSession();
@@ -34,18 +34,18 @@ public class UtenteDao {
 
 		}
 		//2a read uno
-		public boolean readUtenteNomeCognome(String nome, String cognome) {
+		public boolean readDipendenteNomeCognome(String nome, String cognome) {
 			boolean res=false;
 			Session session = HibernateUtil.openSession();
 			Transaction tx = null;
-			UtenteBean u = null;
+			DipendenteBean u = null;
 			try {	
 				tx = session.getTransaction();
 				tx.begin();
-				Query query = session.createQuery("from UtenteBean where nome=:nomeInserito and cognome=:cognomeInserito ");
+				Query query = session.createQuery("from DipendenteBean where nome=:nomeInserito and cognome=:cognomeInserito ");
 				query.setString("nomeInserito", nome);
 				query.setString("cognomeInserito", cognome);
-				u = (UtenteBean) query.uniqueResult();
+				u = (DipendenteBean) query.uniqueResult();
 				if(u!=null){
 					res=true;
 				}			
@@ -59,17 +59,17 @@ public class UtenteDao {
 			return res;
 		}
 		
-		public boolean readUtenteUsername(String username) {
+		public boolean readDipendenteUsername(String username) {
 			boolean res=false;
 			Session session = HibernateUtil.openSession();
 			Transaction tx = null;
-			UtenteBean u = null;
+			DipendenteBean u = null;
 			try {	
 				tx = session.getTransaction();
 				tx.begin();
-				Query query = session.createQuery("from UtenteBean where username=:usernameInserito ");
+				Query query = session.createQuery("from DipendenteBean where username=:usernameInserito ");
 				query.setString("usernameInserito", username);
-				u = (UtenteBean) query.uniqueResult();
+				u = (DipendenteBean) query.uniqueResult();
 				if(u!=null){
 					res=true;
 				}			
@@ -83,18 +83,18 @@ public class UtenteDao {
 			return res;
 		}
 		
-		public boolean readUtenteUsernamePassword (String username,String password){
+		public boolean readDipendenteUsernamePassword (String username,String password){
 			boolean res=false;
 			Session session = HibernateUtil.openSession();
 			Transaction tx = null;
-			UtenteBean u = null;
+			DipendenteBean u = null;
 			try {	
 				tx = session.getTransaction();
 				tx.begin();
-				Query query = session.createQuery("from UtenteBean where username=:usernameInserito and password=:passwordInserito");
+				Query query = session.createQuery("from DipendenteBean where username=:usernameInserito and password=:passwordInserito");
 				query.setString("usernameInserito", username);
 				query.setString("passwordInserito", password);
-				u = (UtenteBean) query.uniqueResult();
+				u = (DipendenteBean) query.uniqueResult();
 				if(u!=null){
 					res=true;
 				}			
@@ -110,20 +110,20 @@ public class UtenteDao {
 		}
 		
 		//2b read tutti
-		public List<UtenteBean> readTuttiUtenti(){
+		public List<DipendenteBean> readTuttiDipendente(){
 		
-		List<UtenteBean> listaUtenti = new ArrayList<UtenteBean>();
+		List<DipendenteBean> lista = new ArrayList<DipendenteBean>();
 
 		Session session = HibernateUtil.openSession();
 		Transaction tx = null;
-		UtenteBean u = null;
+		DipendenteBean u = null;
 		try {	
 			tx = session.getTransaction();
 			tx.begin();
 			
-			Query query = session.createQuery("From UtenteBean");
+			Query query = session.createQuery("From DipendenteBean");
 			
-			listaUtenti= query.list();
+			lista= query.list();
 				
 			tx.commit();
 			
@@ -133,11 +133,11 @@ public class UtenteDao {
 			session.close();			
 		}
 		
-		return listaUtenti;
+		return lista;
 		}
 		//3 update
 		
-		public boolean aggiornaUtente(UtenteBean u) {
+		public boolean aggiornaDipendente(DipendenteBean u) {
 			
 			boolean res = false;
 			
@@ -172,7 +172,7 @@ public class UtenteDao {
 		}
 		//4 delete
 		
-			public boolean eliminaUtente(UtenteBean u) {
+			public boolean eliminaDipendente(DipendenteBean u) {
 
 				boolean res = false;
 
@@ -205,7 +205,5 @@ public class UtenteDao {
 				return res;
 
 			}
-
-
 
 }

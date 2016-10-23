@@ -1,6 +1,6 @@
 package it.alfa.rossella;
 
-public class AdminBean extends UtenteBean{
+public class AdminBean extends UtenteBean implements DataBean{
 	
 	/**
 	 * 
@@ -35,6 +35,25 @@ private static final long serialVersionUID = 1L;
 	public void setLivelloAccesso(String livelloAccesso) {
 		this.livelloAccesso = livelloAccesso;
 	}
+
+
+	@Override
+	public boolean isValid() {
+boolean res=false;
+		
+		if(!nome.isEmpty() && nome!=null && 
+				!cognome.isEmpty() && cognome!=null &&
+				!username.isEmpty() && username!=null &&
+				!password.isEmpty() && password!=null &&
+				ruolo=='a' &&
+				
+				!livelloAccesso.isEmpty() && livelloAccesso!=null) {
+			res=true;
+		}
+		
+		return res;
+}
+	
 	
 	
 	
