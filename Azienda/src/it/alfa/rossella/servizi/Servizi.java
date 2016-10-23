@@ -10,6 +10,8 @@ import it.alfa.rossella.dao.DipendenteDao;
 import it.alfa.rossella.dao.RubricaDao;
 import it.alfa.rossella.dao.UtenteDao;
 import it.alfa.rossella.dao.VoceDao;
+import it.alfa.rossella.model.Rubrica;
+import it.alfa.rossella.model.Voce;
 import utility.CodificationOfPassword;
 
 public class Servizi {
@@ -72,10 +74,51 @@ public class Servizi {
 			return dDao.readTuttiDipendente();
 	}
 	
+	//METODI PER GESTIRE RUBRICHE E VOCI
 	
-	
+		//creare rubrica
+		
+		public boolean CreareRubricaUtente(String username){
+			boolean res=false;
+			Rubrica r = new Rubrica(username);
+			res = rubDao.creaRubrica(r);
+			return res;
+		}
+		
+		//aggiungere voce a rubrica
+		
+		public boolean AggiungiVoceaRubrica(String username, String nome, String cognome, String telefono){
+			boolean res=false;
+			Rubrica r = new Rubrica(username);
+			Voce v = new Voce(nome,cognome,telefono);
+			
+			vocDao.creaVoce(v);
+			r.addVoce(v);
+			rubDao.aggiornaRubrica(r);
+			
+			if(vocDao.leggiVoceConNome(nome).equals(v)){
+				res = true;
+			}
+				
+			return res;
+			
+		}
+	    //eliminare voce da rubrica
+		public boolean eliminaVocedaRubrica(Rubrica r, String nome){
+			boolean res=false;
+			
+			Voce v = vocDao.leggiVoceConNome(nome);
+			vocDao.eliminaVoce(v);
+			res = rubDao.aggiornaRubrica(r);
+			
+			return res;
+		}
+		
+		//metodo per prendere tutte le voci di rubrica
+		
+		public List<Voce> getVoci(long idRubrica) {
+			List<Voce> lista = vocDao.getTutteleVoci(idRubrica);
 
-	
-	
-
+			return lista;
+	}
 }
