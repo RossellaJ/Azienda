@@ -12,27 +12,44 @@
 
 <div id="Container">
   
-  <div id="header">
-<h1>Header</h1>
+ <div id="header">
+			<h1>Admin HomePage</h1>
+			
+			<h2>
+			<c:out value="${utente.nome}"/>
+			<c:out value="${utente.cognome}"/>
+			</h2>
+		</div>
   
-  </div>
   
-  
-    <div  class="menu">
- 
-  <jsp:include page="MenuLateraleAdmin.jsp"></jsp:include>
-  
-  </div>
-    <div id="content">
-   <h1>Registrazione Nuovo Cliente</h1>
-   <form action="" method="post">
-   
-   <input type="text" name="nome" required />
-   <input type="submit" value="Registra"  />
-   </form>
-   
-  </div>
-    <div id="footer">
+   <div class="menu">
+			<jsp:include page="MenuLateraleAdmin.jsp"></jsp:include>
+		</div>
+
+
+		<div id="content">
+			<h1>Registrazione Nuovo Cliente</h1>
+
+			<form action="doRegistraCliente.jsp" method="post">
+
+				Nome : <input type="text" name="nome" /> <br> 
+				Cognome : <input
+					type="text" name="cognome" /> <br> 
+					Username : <input
+					type="text" name="username" /> <br> 
+					Password : <input
+					type="password" name="password" /> <br> 
+					Ragione Sociale : <input
+					type="text" name="ragioneSociale" /> <br> 
+					Partita IVA : <input
+					type="text" name="piva" /> <br> 
+					<input type="submit" value="Registra" />
+
+			</form>
+
+		</div>
+		
+		<div id="footer">
  <h1>Footer</h1>
  
   </div>

@@ -60,7 +60,10 @@ public class Servizi {
 		result = uDao.readUtenteUsername(username);
 		return result;
 	}
-	
+	//trovare Utente per nome e cognome
+	public boolean trovaUtenteNomeCognome(String nome, String cognome){
+		return uDao.readUtenteNomeCognome(nome, cognome);
+	}
 	
 		//metodo per avere la lista dei clienti
 		public List<ClienteBean> getClienti(){
