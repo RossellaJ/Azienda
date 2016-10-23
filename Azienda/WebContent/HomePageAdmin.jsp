@@ -33,7 +33,7 @@
 		
 		
 		<div id="content">
-			<h1>Welcom to Home Page</h1>
+			<h1>Welcome to Home Page</h1>
 		</div>
 		
 		<div id="footer">

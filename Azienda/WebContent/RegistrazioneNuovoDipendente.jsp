@@ -15,7 +15,7 @@
 	<div id="Container">
 
 		<div id="header">
-			<h1>Admin HomePage</h1>
+			
 
 			<h2>
 				<c:out value="${utente.nome}" />
