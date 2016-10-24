@@ -1,3 +1,4 @@
+<%@page import="it.alfa.rossella.UtenteBean"%>
 <%@page import="it.alfa.rossella.servizi.Servizi"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -9,17 +10,16 @@
 
 <%
  	Servizi s = new Servizi();
+	String usern= request.getParameter("username");
+ 	UtenteBean u = s.getUtente(usern);
  	
 	 if(utente.isValid()){
 		//l'utente è valido
 			String passDaCodificare = utente.getPassword();
 			String passCodificata= s.convertiPass(passDaCodificare);
 			utente.setPassword(passCodificata);
-			
-			
-			if(utente!=null && utente.getPassword().equals(passCodificata))
-
-		    {
+	
+			if(u!=null && u.getPassword().equals(passCodificata)) {
 
 		    	char ruolo= u.getRuolo();
 		    	utente.setNome(u.getNome());
@@ -33,9 +33,9 @@
 		    		case 'a' :   
 		    			%>
 
-						<jsp:forward page="HomePageAdmin.jsp" />
+<jsp:forward page="HomePageAdmin.jsp" />
 
-						<%
+<%
 
 					break;
 
@@ -43,9 +43,9 @@
 
 		    	    	%>
 
-				<jsp:forward page="HomePageCliente.jsp" />
+<jsp:forward page="HomePageCliente.jsp" />
 
-				<%
+<%
 
 		    		break;
 	    		case 'd' :
@@ -61,7 +61,7 @@
 		    		}
 
 		    }
-
+	 }
 		    else{
 
 		    	message.setMessage("Username o password non corretti");
@@ -70,14 +70,9 @@
 
 <jsp:forward page="login.jsp" />
 
-			<%
-
-		    }
-
-		    
-
-		    %>
-
+<%
+			
+			}%>
 
 
 
