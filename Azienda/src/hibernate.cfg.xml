@@ -17,8 +17,8 @@ lgpl.txt file in the root directory or <http://www.gnu.org/licenses/lgpl-2.1.htm
 
 
 <property name="connection.url">jdbc:oracle:thin:@localhost:1521:xe</property> 
-<property name="connection.username">ered</property>
-<property name="connection.password">ered</property>
+<property name="connection.username">azienda</property>
+<property name="connection.password">azienda</property>
 <!-- JDBC connection pool (use the built-in) -->
 <property name="connection.pool_size">1</property>
 <!-- SQL dialect -->
@@ -30,7 +30,7 @@ lgpl.txt file in the root directory or <http://www.gnu.org/licenses/lgpl-2.1.htm
 <!-- Echo all executed SQL to stdout -->
 <property name="show_sql">true</property>
 <!-- Drop and re-create the database schema on startup -->
-<property name="hbm2ddl.auto">update</property>
+<property name="hbm2ddl.auto">create</property>
 
 <mapping class="it.alfasoft.rossella.UtenteBean" />
 
