@@ -12,7 +12,7 @@ import javax.persistence.InheritanceType;
 
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
-public class UtenteBean implements Serializable{
+public class UtenteBean implements Serializable, DataBean{
 
 	
 	/**
@@ -113,7 +113,24 @@ public class UtenteBean implements Serializable{
 	public void setRuolo(char ruolo) {
 		this.ruolo = ruolo;
 	}
+
+	@Override
+	public boolean isValid() {
+boolean res=false;
+		
+		if(!nome.isEmpty() && nome!=null && 
+				!cognome.isEmpty() && cognome!=null &&
+				!username.isEmpty() && username!=null &&
+				!password.isEmpty() && password!=null &&
+				ruolo=='d'){
+				
+			res=true;
+		}
+		
+		return res;
+	}
+}
 	
 	
 
-}
+
