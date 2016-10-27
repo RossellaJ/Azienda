@@ -32,8 +32,10 @@ lgpl.txt file in the root directory or <http://www.gnu.org/licenses/lgpl-2.1.htm
 <!-- Drop and re-create the database schema on startup -->
 <property name="hbm2ddl.auto">create</property>
 
-<mapping class="it.alfasoft.rossella.UtenteBean" />
-
+<mapping class="it.alfa.rossella.UtenteBean" />
+<mapping class="it.alfa.rossella.AdminBean" />
+<mapping class="it.alfa.rossella.ClienteBean" />
+<mapping class="it.alfa.rossella.DipendenteBean" />
 
 </session-factory>
 </hibernate-configuration>
