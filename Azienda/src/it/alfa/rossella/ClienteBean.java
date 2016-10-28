@@ -1,5 +1,10 @@
 package it.alfa.rossella;
 
+import javax.persistence.Entity;
+
+
+
+@Entity
 public class ClienteBean extends UtenteBean implements DataBean{
 	
 	/**

@@ -22,7 +22,7 @@ public class UtenteBean implements Serializable, DataBean{
 
 	@Id 
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	protected String idUtente;
+	protected long idUtente;
 	
 	protected String nome;
 	protected String cognome;
@@ -36,7 +36,7 @@ public class UtenteBean implements Serializable, DataBean{
 
 
 	public UtenteBean() {
-	this.idUtente="";
+	
 	this.nome="";
 	this.cognome="";
 	this.username="";
@@ -47,7 +47,7 @@ public class UtenteBean implements Serializable, DataBean{
 	public UtenteBean(String idUtente, String nome, String cognome,
 			String username, String password, char ruolo) {
 		super();
-		this.idUtente = idUtente;
+		
 		this.nome = nome;
 		this.cognome = cognome;
 		this.username = username;
@@ -66,11 +66,11 @@ public class UtenteBean implements Serializable, DataBean{
 		this.ruolo = ruolo;
 	}
 
-	public String getIdUtente() {
+	public long getIdUtente() {
 		return idUtente;
 	}
 
-	public void setIdUtente(String idUtente) {
+	public void setIdUtente(long idUtente) {
 		this.idUtente = idUtente;
 	}
 

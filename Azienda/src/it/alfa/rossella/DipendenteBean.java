@@ -1,5 +1,8 @@
 package it.alfa.rossella;
 
+import javax.persistence.Entity;
+
+@Entity
 public class DipendenteBean extends UtenteBean implements DataBean{
 	
 	/**

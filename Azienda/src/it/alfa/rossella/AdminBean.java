@@ -1,5 +1,8 @@
 package it.alfa.rossella;
 
+import javax.persistence.Entity;
+
+@Entity
 public class AdminBean extends UtenteBean implements DataBean{
 	
 	/**
@@ -17,8 +20,7 @@ private static final long serialVersionUID = 1L;
 	}
 	
 	
-	public AdminBean(String nome, String cognome,
-			String username, String password, char ruolo, String livelloAccesso) {
+	public AdminBean(String nome, String cognome, String username, String password, char ruolo, String livelloAccesso) {
 		super(nome,cognome,username,password,ruolo);
 		this.livelloAccesso = livelloAccesso;
 }
